@@ -8,4 +8,25 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+# Introduction
+
+This notebook will host the practice lab for the classic book [Introudction to Statistical Learning](https://www.statlearning.com/)
+but now with an application of the [tidymodels](https://www.tidymodels.org/) principles.
+
+This was created by [Emil Hvitfeldt](https://www.emilhvitfeldt.com/)
+
+The purpose is to learn, practice and familiarize myself with the `tidymodels` suite
+using case studies.
+
+The author of the blog went through all the chapters of the book, [which is also 
+available online](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf),  using the 
+tidymodels packages in R.  
+
+Also the book comes with an R package itself that hosts many of the data sets used 
+in the examples:
+
+![](https://i.imgur.com/iGYmZ9c.png)
+
+
+
+
