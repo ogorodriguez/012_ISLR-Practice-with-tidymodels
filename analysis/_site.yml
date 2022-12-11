@@ -1,7 +1,7 @@
-name: "012_ISLR-Practice-with-tidymodels"
+name: 012_ISLR-Practice-with-tidymodels
 output_dir: ../docs
 navbar:
-  title: "012_ISLR-Practice-with-tidymodels"
+  title: 012_ISLR-Practice-with-tidymodels
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels
 output:
   workflowr::wflow_html:
     toc: yes
