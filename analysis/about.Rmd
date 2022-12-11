@@ -7,4 +7,10 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+This notebook will host the practice lab for the classic book [Introudction to Statistical Learning](https://www.statlearning.com/)
+but now with an application of the [tidymodels](https://www.tidymodels.org/) principles.
+
+This was created by [Emil Hvitfeldt](https://www.emilhvitfeldt.com/)
+
+The purpose is to learn, practice and familiarize myself with the `tidymodels` suite
+using case studies.
