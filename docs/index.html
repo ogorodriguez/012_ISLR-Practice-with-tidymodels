@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -239,6 +242,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -246,6 +312,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -297,7 +373,7 @@ $(document).ready(function () {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -308,8 +384,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -318,13 +394,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-12-11
+<strong>Last updated:</strong> 2022-12-12
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -366,15 +442,146 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstreeda90c410e2dfd9407ad822b0e2a6cc6b8b71eb75targetblankda90c41a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20221210code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20221210)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20221210code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20221210)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongdetected">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>Cache:</strong> detected </a>
+</p>
+</div>
+<div id="strongCachestrongdetected" class="panel-collapse collapse">
+<div class="panel-body">
+The following chunks had caches available:
+<ul>
+<li>
+checking the Boston data set
+</li>
+<li>
+checking the lm_Fit fit object using base R
+</li>
+<li>
+checking the lm_fit object using pluck
+</li>
+<li>
+checking the lm_fit object
+</li>
+<li>
+checking the specification
+</li>
+<li>
+checking the summary from the lm object using broom
+</li>
+<li>
+checking the summary from the lm object
+</li>
+<li>
+create a parsnip specification model
+</li>
+<li>
+fitting the data to the specification
+</li>
+<li>
+installing the packages
+</li>
+<li>
+session-info-chunk-inserted-by-workflowr
+</li>
+<li>
+unnamed-chunk-1
+</li>
+<li>
+unnamed-chunk-2
+</li>
+<li>
+using glance() to extract model stats
+</li>
+</ul>
+<p>To ensure reproducibility of the results, delete the cache directory
+<code>index_cache</code> and re-run the analysis. To have workflowr
+automatically delete the cache directory prior to building the file, set
+<code>delete_cache = TRUE</code> when running <code>wflow_build()</code>
+or <code>wflow_publish()</code>.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstree0c1db49d965afd7972ac4106821d2312bdc24237targetblank0c1db49a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/da90c410e2dfd9407ad822b0e2a6cc6b8b71eb75" target="_blank">da90c41</a>
+<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/0c1db49d965afd7972ac4106821d2312bdc24237" target="_blank">0c1db49</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstreeda90c410e2dfd9407ad822b0e2a6cc6b8b71eb75targetblankda90c41a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstree0c1db49d965afd7972ac4106821d2312bdc24237targetblank0c1db49a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -384,7 +591,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/da90c410e2dfd9407ad822b0e2a6cc6b8b71eb75" target="_blank">da90c41</a>.
+<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/0c1db49d965afd7972ac4106821d2312bdc24237" target="_blank">0c1db49</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -401,6 +608,7 @@ were generated:
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/index_cache/
     Ignored:    analysis/utterances.html
 
 Unstaged changes:
@@ -449,6 +657,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/blob/0c1db49d965afd7972ac4106821d2312bdc24237/analysis/index.Rmd" target="_blank">0c1db49</a>
+</td>
+<td>
+ogorodriguez
+</td>
+<td>
+2022-12-12
+</td>
+<td>
+Added Simple linear reg section
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/e006e3334399d5e891de876df6c2efb78e8c9a3d/docs/index.html" target="_blank">e006e33</a>
+</td>
+<td>
+ogorodriguez
+</td>
+<td>
+2022-12-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -540,6 +782,284 @@ available online</a>, using the tidymodels packages in R.</p>
 <p>Also the book comes with an R package itself that hosts many of the
 data sets used in the examples:</p>
 <p><img src="https://i.imgur.com/iGYmZ9c.png" /></p>
+<p>The original book was writting not taking into account the tidyverse
+style guide. Since tidymodels is built on the same premises. The labs
+will not ressemble the ones in the book, and that is all good enough for
+me.</p>
+<p>One disclaimer is that I haven’t studied the tidymodels suite in
+details (or at all,) so I am attempting to learn by doing the excercises
+in these labs. I understand I may incur in a few interpretation errors
+due to skipping the prerequisite mentioned.</p>
+<div id="installing-the-packages" class="section level2">
+<h2>Installing the packages</h2>
+<p>Several packages will be needed to run these labs. In the website,
+they are uploaded as required. I will update this section to add other
+packages as they appear.</p>
+<p>The tidymodels suite contains the folloinng: <code>parsnip</code>,
+<code>recipes and workflows</code>, <code>rsample</code>, and
+<code>tune</code></p>
+<pre class="r"><code># Install tidymodels and ISLR
+pacman::p_load(tidymodels, # for parsnip, recipes, etc...
+               tidyverse,  # for dplyr, ggplot, purrr, etc...
+               ISLR,       # for the data sets indicated in the Introduction
+               MASS)       # for the Boston data set</code></pre>
+</div>
+</div>
+<div id="linear-regression" class="section level1">
+<h1>Linear Regression</h1>
+<p>The first lab in ISLR is about doing the first method for predictions
+which is getting a linear regression model.</p>
+<p>Linear regression is a very simple model based on Supervised
+learning, that is, working with labeled data for classification or
+prediction outcomes. Linear regression is often used to learn from the
+data to make predictions.</p>
+<p>In this lab we will work with a Simple regression and a multiple
+regression model.</p>
+<div id="simple-linear-regression" class="section level2">
+<h2>Simple linear regression</h2>
+<p>For this example we will use the <code>Boston</code> data set that
+has information fo 506 neighborhodds in Boston. This data set is very
+outdated and some variables are very unfortunate according to the author
+of the blog.</p>
+<p>Let’s check the data set.</p>
+<pre class="r"><code>MASS::Boston %&gt;% 
+  dplyr::glimpse()</code></pre>
+<pre><code>Rows: 506
+Columns: 14
+$ crim    &lt;dbl&gt; 0.00632, 0.02731, 0.02729, 0.03237, 0.06905, 0.02985, 0.08829,…
+$ zn      &lt;dbl&gt; 18.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.5, 12.5, 12.5, 12.5, 12.5, 1…
+$ indus   &lt;dbl&gt; 2.31, 7.07, 7.07, 2.18, 2.18, 2.18, 7.87, 7.87, 7.87, 7.87, 7.…
+$ chas    &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ nox     &lt;dbl&gt; 0.538, 0.469, 0.469, 0.458, 0.458, 0.458, 0.524, 0.524, 0.524,…
+$ rm      &lt;dbl&gt; 6.575, 6.421, 7.185, 6.998, 7.147, 6.430, 6.012, 6.172, 5.631,…
+$ age     &lt;dbl&gt; 65.2, 78.9, 61.1, 45.8, 54.2, 58.7, 66.6, 96.1, 100.0, 85.9, 9…
+$ dis     &lt;dbl&gt; 4.0900, 4.9671, 4.9671, 6.0622, 6.0622, 6.0622, 5.5605, 5.9505…
+$ rad     &lt;int&gt; 1, 2, 2, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4,…
+$ tax     &lt;dbl&gt; 296, 242, 242, 222, 222, 222, 311, 311, 311, 311, 311, 311, 31…
+$ ptratio &lt;dbl&gt; 15.3, 17.8, 17.8, 18.7, 18.7, 18.7, 15.2, 15.2, 15.2, 15.2, 15…
+$ black   &lt;dbl&gt; 396.90, 396.90, 392.83, 394.63, 396.90, 394.12, 395.60, 396.90…
+$ lstat   &lt;dbl&gt; 4.98, 9.14, 4.03, 2.94, 5.33, 5.21, 12.43, 19.15, 29.93, 17.10…
+$ medv    &lt;dbl&gt; 24.0, 21.6, 34.7, 33.4, 36.2, 28.7, 22.9, 27.1, 16.5, 18.9, 15…</code></pre>
+<p>Simple linear models are used to compare how one variable is affected
+by another.<br />
+In this case, we will build a model that relates the median value
+(<code>medz</code>)of homes as the response variable (y), with the
+percentage of population that belongs to lower status
+(<code>lstat</code>) as the predictor (x.)</p>
+</div>
+<div id="building-the-model" class="section level2">
+<h2>Building the model</h2>
+<p>First we need to create a specification that the model we will use is
+a linear regression model.<br />
+The <code>parsnip</code> package is used for that.</p>
+<pre class="r"><code>lm_spec &lt;- linear_reg() %&gt;%
+  set_mode(&quot;regression&quot;) %&gt;%
+  set_engine(&quot;lm&quot;)</code></pre>
+<p>The previous code does not do any calculation. It is just a
+specification of the model we want to create, what we want to do.</p>
+<pre class="r"><code>lm_spec</code></pre>
+<pre><code>Linear Regression Model Specification (regression)
+
+Computational engine: lm </code></pre>
+<p><a href="#introduction">Back to Top</a></p>
+<p>After having the model specified, we can now fit it by supplying the
+formulat and the data. The formula is written on the form
+<code>y ~ x</code>, and the data we’ll use will be the one from the
+Boston data set. We are not dividing the data into training and testing
+just yet.</p>
+<p>The names of the variable should match the names of the variabls
+(columns) in the data set.</p>
+<pre class="r"><code>lm_fit &lt;- lm_spec %&gt;% 
+  fit(medv ~ lstat, data = Boston)
+
+lm_fit</code></pre>
+<pre><code>parsnip model object
+
+
+Call:
+stats::lm(formula = medv ~ lstat, data = data)
+
+Coefficients:
+(Intercept)        lstat  
+      34.55        -0.95  </code></pre>
+<p>The previous result is a parsnip object</p>
+<pre class="r"><code>lm_fit %&gt;% 
+  class()</code></pre>
+<pre><code>[1] &quot;_lm&quot;       &quot;model_fit&quot;</code></pre>
+<p>To see the underlying fit object, we can check the fit list
+element.</p>
+<pre class="r"><code>lm_fit$fit</code></pre>
+<pre><code>
+Call:
+stats::lm(formula = medv ~ lstat, data = data)
+
+Coefficients:
+(Intercept)        lstat  
+      34.55        -0.95  </code></pre>
+<p>or by using <code>purrr::pluck()</code></p>
+<pre class="r"><code>lm_fit %&gt;% 
+  pluck(&quot;fit&quot;)</code></pre>
+<pre><code>
+Call:
+stats::lm(formula = medv ~ lstat, data = data)
+
+Coefficients:
+(Intercept)        lstat  
+      34.55        -0.95  </code></pre>
+<p>We can check the summary but adding that function into the previous
+code</p>
+<pre class="r"><code>lm_fit %&gt;% 
+  pluck(&quot;fit&quot;) %&gt;% 
+  summary()</code></pre>
+<pre><code>
+Call:
+stats::lm(formula = medv ~ lstat, data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.168  -3.990  -1.318   2.034  24.500 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***
+lstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 6.216 on 504 degrees of freedom
+Multiple R-squared:  0.5441,    Adjusted R-squared:  0.5432 
+F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>From the <code>Broom</code> package we can get the summary in a tidy
+manner.</p>
+<pre class="r"><code>lm_fit %&gt;% 
+  broom::tidy()</code></pre>
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic   p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)   34.6      0.563       61.4 3.74e-236
+2 lstat         -0.950    0.0387     -24.5 5.08e- 88</code></pre>
+<p>And <code>glance()</code> is used to extract the models
+statistics</p>
+<pre class="r"><code>lm_fit %&gt;% 
+  broom::glance() %&gt;% 
+  pivot_longer(everything(),
+               names_to = &quot;stats&quot;, 
+               values_to = &quot;values&quot;) %&gt;% 
+  mutate(across(values, round, 5))</code></pre>
+<pre><code># A tibble: 12 × 2
+   stats            values
+   &lt;chr&gt;             &lt;dbl&gt;
+ 1 r.squared         0.544
+ 2 adj.r.squared     0.543
+ 3 sigma             6.22 
+ 4 statistic       602.   
+ 5 p.value           0    
+ 6 df                1    
+ 7 logLik        -1641.   
+ 8 AIC            3289.   
+ 9 BIC            3302.   
+10 deviance      19472.   
+11 df.residual     504    
+12 nobs            506    </code></pre>
+</div>
+<div id="getting-predictions-on-the-simple-regression-model"
+class="section level2">
+<h2>Getting predictions on the simple regression model</h2>
+<p>Supposing we like the fit model, we can then generate predictions
+based on it.</p>
+<p>Important to pass the data set where we based the predictions on.</p>
+<pre class="r"><code>lm_fit %&gt;% 
+  predict(new_data = Boston)</code></pre>
+<pre><code># A tibble: 506 × 1
+   .pred
+   &lt;dbl&gt;
+ 1 29.8 
+ 2 25.9 
+ 3 30.7 
+ 4 31.8 
+ 5 29.5 
+ 6 29.6 
+ 7 22.7 
+ 8 16.4 
+ 9  6.12
+10 18.3 
+# … with 496 more rows</code></pre>
+<p>To compare the observed values with the predicted ones we can use
+<code>augment()</code></p>
+<pre class="r"><code># augment(lm_fit, new_data = Boston) %&gt;% 
+# select(medv, .pred)</code></pre>
+<p><a href="#introduction">Back to Top</a></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.1 (2022-06-23 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=Spanish_Spain.utf8  LC_CTYPE=Spanish_Spain.utf8   
+[3] LC_MONETARY=Spanish_Spain.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=Spanish_Spain.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] MASS_7.3-57          ISLR_1.4             yardstick_1.0.0     
+ [4] workflowsets_1.0.0   workflows_1.0.0      tune_1.0.0          
+ [7] rsample_1.1.0        recipes_1.0.1        parsnip_1.0.1       
+[10] modeldata_1.0.1.9000 infer_1.0.3          dials_1.0.0         
+[13] scales_1.2.1         broom_1.0.1          tidymodels_1.0.0    
+[16] kableExtra_1.3.4     readxl_1.4.1         here_1.0.1          
+[19] janitor_2.1.0        forcats_0.5.2        stringr_1.5.0       
+[22] dplyr_1.0.10         purrr_0.3.4          readr_2.1.2         
+[25] tidyr_1.2.0          tibble_3.1.8         ggplot2_3.3.6       
+[28] tidyverse_1.3.2      workflowr_1.7.0     
+
+loaded via a namespace (and not attached):
+ [1] googledrive_2.0.0   colorspace_2.0-3    ellipsis_0.3.2     
+ [4] class_7.3-20        rprojroot_2.0.3     snakecase_0.11.0   
+ [7] fs_1.5.2            rstudioapi_0.14     furrr_0.3.1        
+[10] listenv_0.8.0       prodlim_2019.11.13  fansi_1.0.3        
+[13] lubridate_1.9.0     xml2_1.3.3          codetools_0.2-18   
+[16] splines_4.2.1       cachem_1.0.6        knitr_1.41         
+[19] jsonlite_1.8.3      dbplyr_2.2.1        compiler_4.2.1     
+[22] httr_1.4.4          backports_1.4.1     assertthat_0.2.1   
+[25] Matrix_1.4-1        fastmap_1.1.0       gargle_1.2.0       
+[28] cli_3.3.0           later_1.3.0         htmltools_0.5.3    
+[31] tools_4.2.1         gtable_0.3.1        glue_1.6.2         
+[34] Rcpp_1.0.9          cellranger_1.1.0    jquerylib_0.1.4    
+[37] DiceDesign_1.9      vctrs_0.5.1         svglite_2.1.0      
+[40] iterators_1.0.14    timeDate_4021.104   xfun_0.35          
+[43] gower_1.0.0         globals_0.16.1      ps_1.7.1           
+[46] rvest_1.0.3         timechange_0.1.1    lifecycle_1.0.3    
+[49] pacman_0.5.1        googlesheets4_1.0.1 future_1.28.0      
+[52] getPass_0.2-2       ipred_0.9-13        hms_1.1.2          
+[55] promises_1.2.0.1    parallel_4.2.1      yaml_2.3.5         
+[58] sass_0.4.4          rpart_4.1.16        stringi_1.7.8      
+[61] foreach_1.5.2       lhs_1.1.5           hardhat_1.2.0      
+[64] lava_1.6.10         rlang_1.0.6         pkgconfig_2.0.3    
+[67] systemfonts_1.0.4   evaluate_0.18       lattice_0.20-45    
+[70] processx_3.7.0      tidyselect_1.2.0    parallelly_1.32.1  
+[73] magrittr_2.0.3      R6_2.5.1            generics_0.1.3     
+[76] DBI_1.1.3           pillar_1.8.1        haven_2.5.1        
+[79] whisker_0.4         withr_2.5.0         survival_3.3-1     
+[82] nnet_7.3-17         future.apply_1.9.0  modelr_0.1.9       
+[85] crayon_1.5.2        utf8_1.2.2          tzdb_0.3.0         
+[88] rmarkdown_2.18      grid_4.2.1          callr_3.7.2        
+[91] git2r_0.30.1        reprex_2.0.2        digest_0.6.29      
+[94] webshot_0.5.4       httpuv_1.6.5        GPfit_1.0-8        
+[97] munsell_0.5.0       viridisLite_0.4.1   bslib_0.4.1        </code></pre>
+</div>
+</div>
 </div>
 
 
@@ -558,6 +1078,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -590,6 +1112,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
