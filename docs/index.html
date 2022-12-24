@@ -394,7 +394,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-12-12
+<strong>Last updated:</strong> 2022-12-24
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -573,15 +573,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstree0c1db49d965afd7972ac4106821d2312bdc24237targetblank0c1db49a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstree996e771fa3eb4efa033345a75ae60f714ffdd552targetblank996e771a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/0c1db49d965afd7972ac4106821d2312bdc24237" target="_blank">0c1db49</a>
+<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/996e771fa3eb4efa033345a75ae60f714ffdd552" target="_blank">996e771</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstree0c1db49d965afd7972ac4106821d2312bdc24237targetblank0c1db49a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomogorodriguez012ISLRPracticewithtidymodelstree996e771fa3eb4efa033345a75ae60f714ffdd552targetblank996e771a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -591,7 +591,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/0c1db49d965afd7972ac4106821d2312bdc24237" target="_blank">0c1db49</a>.
+<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/tree/996e771fa3eb4efa033345a75ae60f714ffdd552" target="_blank">996e771</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -657,6 +657,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/blob/996e771fa3eb4efa033345a75ae60f714ffdd552/analysis/index.Rmd" target="_blank">996e771</a>
+</td>
+<td>
+ogorodriguez
+</td>
+<td>
+2022-12-24
+</td>
+<td>
+Added link to labs page and fixed a select()
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/ogorodriguez/012_ISLR-Practice-with-tidymodels/acd0d51e0c8653645bc2a7fd47286aac7470adfe/docs/index.html" target="_blank">acd0d51</a>
+</td>
+<td>
+ogorodriguez
+</td>
+<td>
+2022-12-12
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -772,6 +806,9 @@ Start workflowr project.
 href="https://www.statlearning.com/">Introudction to Statistical
 Learning</a> but now with an application of the <a
 href="https://www.tidymodels.org/">tidymodels</a> principles.</p>
+<p>This practice lab can be found here: <a
+href="https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html">ISLR
+tidymodels labs</a></p>
 <p>This was created by <a href="https://www.emilhvitfeldt.com/">Emil
 Hvitfeldt</a></p>
 <p>The purpose is to learn, practice and familiarize myself with the
@@ -986,8 +1023,25 @@ based on it.</p>
 # … with 496 more rows</code></pre>
 <p>To compare the observed values with the predicted ones we can use
 <code>augment()</code></p>
-<pre class="r"><code># augment(lm_fit, new_data = Boston) %&gt;% 
-# select(medv, .pred)</code></pre>
+<pre class="r"><code>bind_cols(
+  predict(lm_fit, new_data = Boston),
+  Boston
+) %&gt;% 
+  dplyr::select(medv, .pred)</code></pre>
+<pre><code># A tibble: 506 × 2
+    medv .pred
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1  24   29.8 
+ 2  21.6 25.9 
+ 3  34.7 30.7 
+ 4  33.4 31.8 
+ 5  36.2 29.5 
+ 6  28.7 29.6 
+ 7  22.9 22.7 
+ 8  27.1 16.4 
+ 9  16.5  6.12
+10  18.9 18.3 
+# … with 496 more rows</code></pre>
 <p><a href="#introduction">Back to Top</a></p>
 <br>
 <p>
