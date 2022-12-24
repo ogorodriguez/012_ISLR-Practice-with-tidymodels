@@ -34,6 +34,8 @@ ggplot2::theme_set(theme_minimal())
 This notebook will host the practice lab for the classic book [Introudction to Statistical Learning](https://www.statlearning.com/)
 but now with an application of the [tidymodels](https://www.tidymodels.org/) principles.
 
+This practice lab can be found here: [ISLR tidymodels labs](https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html)
+
 This was created by [Emil Hvitfeldt](https://www.emilhvitfeldt.com/)
 
 The purpose is to learn, practice and familiarize myself with the `tidymodels` suite
@@ -213,8 +215,11 @@ lm_fit %>%
 To compare the observed values with the predicted ones we can use `augment()`
 
 ```{r}
-# augment(lm_fit, new_data = Boston) %>% 
-# select(medv, .pred)
+bind_cols(
+  predict(lm_fit, new_data = Boston),
+  Boston
+) %>% 
+  dplyr::select(medv, .pred)
 
 ```
 
